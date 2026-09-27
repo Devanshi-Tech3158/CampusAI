@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CampusAI - Student Help Desk</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <h2>CampusAI</h2>
+            <p class="small-text">Student Help Desk</p>
+
+            <button class="menu-btn active" onclick="showPage('dashboard')">
+                🏠 Dashboard
+            </button>
+
+            <button class="menu-btn" onclick="showPage('chat')">
+                💬 Ask CampusAI
+            </button>
+
+            <button class="menu-btn" onclick="showPage('notices')">
+                📢 Notices
+            </button>
+
+            <button class="menu-btn" onclick="showPage('assignments')">
+                📝 Assignments
+            </button>
+
+            <button class="menu-btn" onclick="showPage('timetable')">
+                ⏱️ Timetable
+            </button>
+
+        </aside>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <main class="main">
+
+
+            <!-- ================= DASHBOARD ================= -->
+
+            <section id="dashboard" class="page">
+
+                <h1>Welcome, Devanshi 👋</h1>
+
+                <p>
+                    Here is your college information for today.
+                </p>
+
+
+                <!-- Dashboard Cards -->
+
+                <div class="cards">
+
+                    <div class="card">
+
+                        <h3>📢 Notices</h3>
+
+                        <h2>3</h2>
+
+                        <p>New notices</p>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <h3>📝 Assignments</h3>
+
+                        <h2>3</h2>
+
+                        <p>Pending assignments</p>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <h3>⏱️ Classes</h3>
+
+                        <h2>4</h2>
+
+                        <p>Today's classes</p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Today's Updates -->
+
+                <div class="section">
+
+                    <h2>Today's Updates</h2>
+
+
+                    <div class="update">
+
+                        <b>Database Management Assignment</b>
+
+                        <p>
+                            Submit Assignment 2 before Friday.
+                        </p>
+
+                    </div>
+
+
+                    <div class="update">
+
+                        <b>College Hackathon Registration</b>
+
+                        <p>
+                            Registration is open for the upcoming college hackathon.
+                        </p>
+
+                    </div>
+
+
+                    <div class="update">
+
+                        <b>Internal Examination</b>
+
+                        <p>
+                            Internal examination timetable will be announced soon.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Quick Access -->
+
+                <div class="section">
+
+                    <h2>Quick Access</h2>
+
+                    <div class="quick-buttons">
+
+                        <button onclick="showPage('chat')">
+                            Ask CampusAI
+                        </button>
+
+                        <button onclick="showPage('assignments')">
+                            View Assignments
+                        </button>
+
+                        <button onclick="showPage('timetable')">
+                            View Timetable
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= CHAT ================= -->
+
+            <section id="chat" class="page hidden">
+
+                <h1>Ask CampusAI</h1>
+
+                <p>
+                    Ask questions about your college, classes,
+                    assignments and notices.
+                </p>
+
+
+                <div class="chat-box">
+
+                    <div id="chatMessages">
+
+                        <div class="message bot">
+
+                            <b>CampusAI</b>
+
+                            <p>
+                                Hello! How can I help you today?
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="chat-input">
+
+                        <input
+                            type="text"
+                            id="userInput"
+                            placeholder="Ask something..."
+                        >
+
+                        <button onclick="sendMessage()">
+                            Send
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= NOTICES ================= -->
+
+            <section id="notices" class="page hidden">
+
+                <h1>College Notices</h1>
+
+                <p>
+                    Latest updates and announcements from the college.
+                </p>
+
+
+                <input
+                    type="text"
+                    id="noticeSearch"
+                    class="search"
+                    placeholder="Search notices..."
+                    onkeyup="searchNotices()"
+                >
+
+
+                <div id="noticeList">
+
+
+                    <!-- Notice 1 -->
+
+                    <div class="notice">
+
+                        <h3>
+                            Internal Examination Timetable
+                        </h3>
+
+                        <p>
+                            The internal examination timetable will
+                            be announced soon. Students are advised
+                            to check the college portal regularly.
+                        </p>
+
+                        <span>
+                            Posted: 24 September 2026
+                        </span>
+
+                    </div>
+
+
+                    <!-- Notice 2 -->
+
+                    <div class="notice">
+
+                        <h3>
+                            College Hackathon Registration
+                        </h3>
+
+                        <p>
+                            Registration is open for the upcoming
+                            college hackathon. Interested students
+                            can register through the college portal.
+                        </p>
+
+                        <span>
+                            Posted: 23 September 2026
+                        </span>
+
+                    </div>
+
+
+                    <!-- Notice 3 -->
+
+                    <div class="notice">
+
+                        <h3>
+                            Assignment Submission Reminder
+                        </h3>
+
+                        <p>
+                            Students are requested to submit their
+                            pending Database Management and Data
+                            Structures assignments before the
+                            respective deadlines.
+                        </p>
+
+                        <span>
+                            Posted: 22 September 2026
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= ASSIGNMENTS ================= -->
+
+            <section id="assignments" class="page hidden">
+
+                <div class="heading-row">
+
+                    <div>
+
+                        <h1>Assignments</h1>
+
+                        <p>
+                            Keep track of your pending assignments.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="add-btn"
+                        onclick="openAssignmentPopup()"
+                    >
+                        + Add Assignment
+                    </button>
+
+                </div>
+
+
+                <div id="assignmentList">
+
+
+                    <!-- Assignment 1 -->
+
+                    <div class="assignment">
+
+                        <h3>
+                            Database Management System
+                        </h3>
+
+                        <p>
+                            Complete SQL queries and submit
+                            Assignment 2.
+                        </p>
+
+                        <p>
+                            <b>Due:</b> 30 September 2026
+                        </p>
+
+                        <button
+                            class="delete-btn"
+                            onclick="deleteAssignment(this)"
+                        >
+                            Delete
+                        </button>
+
+                    </div>
+
+
+                    <!-- Assignment 2 -->
+
+                    <div class="assignment">
+
+                        <h3>
+                            Data Structures
+                        </h3>
+
+                        <p>
+                            Solve problems based on arrays,
+                            stacks and queues.
+                        </p>
+
+                        <p>
+                            <b>Due:</b> 2 October 2026
+                        </p>
+
+                        <button
+                            class="delete-btn"
+                            onclick="deleteAssignment(this)"
+                        >
+                            Delete
+                        </button>
+
+                    </div>
+
+
+                    <!-- Assignment 3 -->
+
+                    <div class="assignment">
+
+                        <h3>
+                            Computer Networks
+                        </h3>
+
+                        <p>
+                            Prepare short notes on OSI model
+                            and TCP/IP protocol.
+                        </p>
+
+                        <p>
+                            <b>Due:</b> 5 October 2026
+                        </p>
+
+                        <button
+                            class="delete-btn"
+                            onclick="deleteAssignment(this)"
+                        >
+                            Delete
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= TIMETABLE ================= -->
+
+            <section id="timetable" class="page hidden">
+
+                <h1>Class Timetable</h1>
+
+                <p>
+                    Check your weekly class schedule.
+                </p>
+
+
+                <div class="days">
+
+                    <button onclick="showDay('Monday')">
+                        Monday
+                    </button>
+
+                    <button onclick="showDay('Tuesday')">
+                        Tuesday
+                    </button>
+
+                    <button onclick="showDay('Wednesday')">
+                        Wednesday
+                    </button>
+
+                    <button onclick="showDay('Thursday')">
+                        Thursday
+                    </button>
+
+                    <button onclick="showDay('Friday')">
+                        Friday
+                    </button>
+
+                </div>
+
+
+                <h2 id="dayTitle">
+                    Monday
+                </h2>
+
+
+                <div id="timetableList">
+
+
+                    <div class="class-item">
+
+                        <h3>
+                            9:00 AM - 10:00 AM
+                        </h3>
+
+                        <p>
+                            Data Structures - Room 204
+                        </p>
+
+                    </div>
+
+
+                    <div class="class-item">
+
+                        <h3>
+                            10:00 AM - 11:00 AM
+                        </h3>
+
+                        <p>
+                            Database Management - Room 302
+                        </p>
+
+                    </div>
+
+
+                    <div class="class-item">
+
+                        <h3>
+                            11:30 AM - 12:30 PM
+                        </h3>
+
+                        <p>
+                            Computer Networks - Room 105
+                        </p>
+
+                    </div>
+
+
+                    <div class="class-item">
+
+                        <h3>
+                            2:00 PM - 3:00 PM
+                        </h3>
+
+                        <p>
+                            Web Development Lab - Lab 2
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+
+    <!-- ================= ADD ASSIGNMENT POPUP ================= -->
+
+    <div id="assignmentPopup" class="popup">
+
+        <div class="popup-box">
+
+            <h2>Add Assignment</h2>
+
+
+            <input
+                type="text"
+                id="assignmentName"
+                placeholder="Assignment name"
+            >
+
+
+            <input
+                type="text"
+                id="assignmentDescription"
+                placeholder="Description"
+            >
+
+
+            <input
+                type="date"
+                id="assignmentDate"
+            >
+
+
+            <div class="popup-buttons">
+
+                <button onclick="addAssignment()">
+                    Add
+                </button>
+
+                <button onclick="closeAssignmentPopup()">
+                    Cancel
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

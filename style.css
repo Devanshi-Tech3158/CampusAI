@@ -1,0 +1,440 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #222;
+}
+
+/* Main layout */
+.container {
+    display: grid;
+    grid-template-columns: 230px minmax(0, 1fr);
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 230px;
+    min-height: 100vh;
+    background-color: #172b4d;
+    color: white;
+    padding: 25px 18px;
+}
+
+.sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.sidebar .small-text {
+    color: #d5dbe5;
+    font-size: 13px;
+    margin-bottom: 30px;
+}
+
+/* Menu */
+.menu-btn {
+    display: block;
+    width: 100%;
+    padding: 12px 10px;
+    margin-bottom: 8px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: transparent;
+    color: white;
+
+    text-align: left;
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+.menu-btn:hover,
+.menu-btn.active {
+    background-color: #29456f;
+}
+
+/* Main content */
+.main {
+    min-width: 0;
+    width: 100%;
+    padding: 30px;
+    background-color: #f4f6f8;
+}
+
+/* Pages */
+.page {
+    width: 100%;
+}
+
+.page.hidden {
+    display: none;
+}
+
+/* Headings */
+h1 {
+    color: #172b4d;
+    margin-bottom: 8px;
+}
+
+h2 {
+    color: #172b4d;
+}
+
+p {
+    color: #555;
+}
+
+/* Dashboard cards */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    width: 100%;
+    margin-top: 25px;
+}
+
+.card {
+    background-color: white;
+    padding: 22px;
+    border: 1px solid #dfe3e8;
+    border-radius: 8px;
+}
+
+.card h3 {
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.card h2 {
+    font-size: 28px;
+}
+
+/* Sections */
+.section {
+    width: 100%;
+    margin-top: 25px;
+    padding: 22px;
+    background-color: white;
+    border: 1px solid #dfe3e8;
+    border-radius: 8px;
+}
+
+.section h2 {
+    margin-bottom: 15px;
+}
+
+/* Updates */
+.update {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+
+    background-color: #f8f9fa;
+    border-left: 4px solid #315b91;
+}
+
+.update p {
+    margin-top: 5px;
+}
+
+/* Buttons */
+.quick-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.quick-buttons button,
+.add-btn {
+    padding: 11px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #172b4d;
+    color: white;
+    cursor: pointer;
+}
+
+.quick-buttons button:hover,
+.add-btn:hover {
+    background-color: #29456f;
+}
+
+/* Notices */
+.search {
+    width: 100%;
+    max-width: 600px;
+    padding: 12px;
+    margin: 20px 0;
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+#noticeList {
+    width: 100%;
+}
+
+.notice {
+    width: 100%;
+    padding: 18px;
+    margin-bottom: 15px;
+
+    background-color: white;
+    border: 1px solid #dfe3e8;
+    border-radius: 8px;
+
+    overflow-wrap: break-word;
+}
+
+.notice h3 {
+    color: #172b4d;
+    margin-bottom: 8px;
+}
+
+.notice p {
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.notice span {
+    font-size: 12px;
+    color: #777;
+}
+
+/* Assignments */
+.heading-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.assignment {
+    width: 100%;
+    padding: 18px;
+    margin-top: 15px;
+
+    background-color: white;
+    border: 1px solid #dfe3e8;
+    border-radius: 8px;
+}
+
+.assignment h3 {
+    color: #172b4d;
+    margin-bottom: 8px;
+}
+
+.assignment p {
+    margin-bottom: 10px;
+}
+
+.delete-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #b83232;
+    color: white;
+    cursor: pointer;
+}
+
+/* Timetable */
+.days {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 20px 0;
+}
+
+.days button {
+    padding: 10px 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.days button:hover {
+    background-color: #172b4d;
+    color: white;
+}
+
+.class-item {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+
+    background-color: white;
+    border: 1px solid #dfe3e8;
+    border-radius: 7px;
+}
+
+.class-item h3 {
+    color: #172b4d;
+    margin-bottom: 5px;
+}
+
+/* Chat */
+.chat-box {
+    width: 100%;
+    max-width: 750px;
+    margin-top: 25px;
+    padding: 20px;
+
+    background-color: white;
+    border: 1px solid #dfe3e8;
+    border-radius: 8px;
+}
+
+#chatMessages {
+    min-height: 300px;
+    max-height: 450px;
+    overflow-y: auto;
+}
+
+.message {
+    max-width: 80%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 7px;
+}
+
+.message.bot {
+    background-color: #eef1f5;
+}
+
+.message.user {
+    margin-left: auto;
+    background-color: #172b4d;
+    color: white;
+}
+
+.message.user p {
+    color: white;
+}
+
+.chat-input {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.chat-input input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.chat-input button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #172b4d;
+    color: white;
+    cursor: pointer;
+}
+
+/* Popup */
+.popup {
+    display: none;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.45);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 2000;
+}
+
+.popup-box {
+    width: 90%;
+    max-width: 400px;
+    padding: 25px;
+
+    background-color: white;
+    border-radius: 8px;
+}
+
+.popup-box input {
+    width: 100%;
+    padding: 11px;
+    margin: 8px 0;
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.popup-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Mobile */
+@media screen and (max-width: 700px) {
+
+    .container {
+        display: block;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+        padding: 18px;
+    }
+
+    .sidebar .small-text {
+        margin-bottom: 15px;
+    }
+
+    .menu-btn {
+        display: inline-block;
+        width: auto;
+        margin: 4px;
+    }
+
+    .main {
+        width: 100%;
+        padding: 18px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .heading-row {
+        display: block;
+    }
+
+    .add-btn {
+        margin-top: 12px;
+    }
+
+    .chat-input {
+        flex-direction: column;
+    }
+
+    .chat-input button {
+        width: 100%;
+    }
+}
