@@ -70,7 +70,7 @@ Add a screenshot of the project here.
 
 ## 🌐 Live Demo
 
-[Click here to try CampusAI](YOUR-GITHUB-PAGES-LINK)
+[Click here to try CampusAI](https://devanshi-tech3158.github.io/CampusAI/)
 
 ## 🎯 Future Improvements
 
