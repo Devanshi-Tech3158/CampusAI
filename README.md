@@ -97,8 +97,7 @@ It helped in learning:
 ## 👩‍💻 Developed By
 
 **Devanshi Goyal**
-
-B.Tech CSE Student
+GitHub: Devanshi-Tech3158
 
 ---
 
