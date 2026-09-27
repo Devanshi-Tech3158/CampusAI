@@ -64,8 +64,6 @@ The current version uses JavaScript-based responses as a simple working MVP.
 
 ## 📸 Project Preview
 
-Add a screenshot of the project here.
-
 ![CampusAI Preview](CampusAI-Preview.png)
 
 ## 🌐 Live Demo
