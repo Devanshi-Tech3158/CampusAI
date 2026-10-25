@@ -1,7 +1,11 @@
-// Paste your Firebase web app config here.
-// Firebase Console -> Project settings -> Your apps -> Web app -> SDK setup and configuration.
-// These values are NOT secrets (they identify your project). Security comes from
-// Firestore rules + Authorized domains + App Check, not from hiding this file.
+// Optional Firebase Configuration for CampusAI
+// If you want to sync assignments across multiple devices with Firebase Firestore:
+// 1. Create a project at https://console.firebase.google.com/
+// 2. Go to Project Settings -> General -> Your apps -> Web app
+// 3. Paste your configuration details below.
+// If you leave them as "YOUR_API_KEY", CampusAI will automatically and safely run
+// using browser LocalStorage + Google Gemini REST API.
+
 export const firebaseConfig = {
   apiKey: "YOUR_API_KEY",
   authDomain: "YOUR_PROJECT.firebaseapp.com",
@@ -11,5 +15,12 @@ export const firebaseConfig = {
   appId: "YOUR_APP_ID",
 };
 
-// Gemini model used through Firebase AI Logic. Change if a newer one is available.
-export const GEMINI_MODEL = "gemini-2.5-flash";
+// Check if valid Firebase credentials are provided
+export const isFirebaseConfigured = () => {
+  return (
+    firebaseConfig.apiKey &&
+    firebaseConfig.apiKey !== "YOUR_API_KEY" &&
+    firebaseConfig.projectId &&
+    firebaseConfig.projectId !== "YOUR_PROJECT_ID"
+  );
+};

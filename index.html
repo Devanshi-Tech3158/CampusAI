@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="description" content="CampusAI - Student Help Desk and College Portal">
     <title>CampusAI - Student Help Desk</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,154 +14,127 @@
     <div class="container">
 
         <!-- ================= SIDEBAR ================= -->
-
         <aside class="sidebar">
 
-            <h2>CampusAI</h2>
-            <p class="small-text">Student Help Desk</p>
+            <div class="sidebar-brand">
+                <h2>CampusAI 🎓</h2>
+                <p class="small-text">Student Help Desk</p>
+            </div>
 
-            <button class="menu-btn active" onclick="showPage('dashboard')">
-                🏠 Dashboard
-            </button>
+            <nav class="sidebar-nav">
+                <button class="menu-btn active" onclick="showPage('dashboard')">
+                    🏠 Dashboard
+                </button>
 
-            <button class="menu-btn" onclick="showPage('chat')">
-                💬 Ask CampusAI
-            </button>
+                <button class="menu-btn" onclick="showPage('chat')">
+                    💬 Ask CampusAI
+                </button>
 
-            <button class="menu-btn" onclick="showPage('notices')">
-                📢 Notices
-            </button>
+                <button class="menu-btn" onclick="showPage('notices')">
+                    📢 Notices
+                </button>
 
-            <button class="menu-btn" onclick="showPage('assignments')">
-                📝 Assignments
-            </button>
+                <button class="menu-btn" onclick="showPage('assignments')">
+                    📝 Assignments
+                </button>
 
-            <button class="menu-btn" onclick="showPage('timetable')">
-                ⏱️ Timetable
-            </button>
+                <button class="menu-btn" onclick="showPage('timetable')">
+                    ⏱️ Timetable
+                </button>
+            </nav>
+
+            <!-- Sidebar Footer / AI Status -->
+            <div class="sidebar-footer">
+                <div class="ai-status-card" onclick="openAiSettings()">
+                    <div class="ai-status-indicator">
+                        <span id="sidebarStatusDot" class="status-dot"></span>
+                        <span id="sidebarStatusText" class="status-text">Campus Mode</span>
+                    </div>
+                    <small>⚙️ Configure Gemini API</small>
+                </div>
+            </div>
 
         </aside>
 
 
         <!-- ================= MAIN CONTENT ================= -->
-
         <main class="main">
 
-
             <!-- ================= DASHBOARD ================= -->
-
             <section id="dashboard" class="page">
 
-                <h1>Welcome, Devanshi 👋</h1>
+                <div class="page-header">
+                    <h1>Welcome, Devanshi 👋</h1>
+                    <p>Here is your college overview, assignments, and schedule for today.</p>
+                </div>
 
-                <p>
-                    Here is your college information for today.
-                </p>
-
-
-                <!-- Dashboard Cards -->
-
+                <!-- Dashboard Stat Cards -->
                 <div class="cards">
 
-                    <div class="card">
-
-                        <h3>📢 Notices</h3>
-
-                        <h2>3</h2>
-
-                        <p>New notices</p>
-
+                    <div class="card" onclick="showPage('notices')" title="Click to view all notices">
+                        <div class="card-icon">📢</div>
+                        <div class="card-info">
+                            <h2 id="noticeCount">3</h2>
+                            <p>College Notices</p>
+                        </div>
                     </div>
 
-
-                    <div class="card">
-
-                        <h3>📝 Assignments</h3>
-
-                        <h2>3</h2>
-
-                        <p>Pending assignments</p>
-
+                    <div class="card" onclick="showPage('assignments')" title="Click to view assignments">
+                        <div class="card-icon">📝</div>
+                        <div class="card-info">
+                            <h2 id="assignmentCount">0</h2>
+                            <p>Pending Assignments</p>
+                        </div>
                     </div>
 
-
-                    <div class="card">
-
-                        <h3>⏱️ Classes</h3>
-
-                        <h2>4</h2>
-
-                        <p>Today's classes</p>
-
+                    <div class="card" onclick="showPage('timetable')" title="Click to view today's timetable">
+                        <div class="card-icon">⏱️</div>
+                        <div class="card-info">
+                            <h2 id="classCount">4</h2>
+                            <p>Today's Classes</p>
+                        </div>
                     </div>
 
                 </div>
 
 
                 <!-- Today's Updates -->
-
                 <div class="section">
-
-                    <h2>Today's Updates</h2>
-
-
-                    <div class="update">
-
-                        <b>Database Management Assignment</b>
-
-                        <p>
-                            Submit Assignment 2 before Friday.
-                        </p>
-
+                    <div class="section-header">
+                        <h2>Today's Updates &amp; Deadlines</h2>
+                        <span class="badge" id="todayDateBadge">Today</span>
                     </div>
 
-
-                    <div class="update">
-
-                        <b>College Hackathon Registration</b>
-
-                        <p>
-                            Registration is open for the upcoming college hackathon.
-                        </p>
-
+                    <div id="updatesList" class="updates-list">
+                        <!-- Dynamically populated updates -->
                     </div>
-
-
-                    <div class="update">
-
-                        <b>Internal Examination</b>
-
-                        <p>
-                            Internal examination timetable will be announced soon.
-                        </p>
-
-                    </div>
-
                 </div>
 
 
                 <!-- Quick Access -->
-
                 <div class="section">
-
                     <h2>Quick Access</h2>
-
                     <div class="quick-buttons">
-
                         <button onclick="showPage('chat')">
-                            Ask CampusAI
+                            💬 Ask CampusAI
                         </button>
 
                         <button onclick="showPage('assignments')">
-                            View Assignments
+                            📝 View Assignments
+                        </button>
+
+                        <button onclick="openAssignmentPopup()">
+                            ➕ New Assignment
                         </button>
 
                         <button onclick="showPage('timetable')">
-                            View Timetable
+                            ⏱️ Class Timetable
                         </button>
 
+                        <button onclick="showPage('notices')">
+                            📢 Read Notices
+                        </button>
                     </div>
-
                 </div>
 
             </section>
@@ -170,46 +142,52 @@
 
 
             <!-- ================= CHAT ================= -->
-
             <section id="chat" class="page hidden">
 
-                <h1>Ask CampusAI</h1>
+                <div class="page-header chat-header-row">
+                    <div>
+                        <h1>Ask CampusAI 💬</h1>
+                        <p>Ask questions about your college, classes, upcoming assignments, and notices.</p>
+                    </div>
 
-                <p>
-                    Ask questions about your college, classes,
-                    assignments and notices.
-                </p>
+                    <div class="chat-actions">
+                        <span id="chatStatusPill" class="ai-status-pill offline" onclick="openAiSettings()" title="Click to configure API">
+                            <span class="status-dot"></span>
+                            <span id="chatStatusLabel">Smart Campus Assistant</span>
+                        </span>
+
+                        <button class="action-btn" onclick="openAiSettings()" title="Configure Google Gemini API">
+                            ⚙️ AI API
+                        </button>
+
+                        <button class="action-btn secondary" onclick="clearChat()" title="Reset chat history">
+                            🗑️ Clear
+                        </button>
+                    </div>
+                </div>
 
 
                 <div class="chat-box">
 
                     <div id="chatMessages">
-
                         <div class="message bot">
-
                             <b>CampusAI</b>
-
-                            <p>
-                                Hello! How can I help you today?
-                            </p>
-
+                            <p>Hello Devanshi! 👋 How can I help you today? You can ask me about your pending assignments, deadlines, weekly timetable, or college announcements!</p>
                         </div>
-
                     </div>
 
-
-                    <div class="chat-input">
-
+                    <div class="chat-input-area">
                         <input
                             type="text"
                             id="userInput"
-                            placeholder="Ask something..."
+                            placeholder="Ask CampusAI (e.g. 'What assignments are due soon?' or 'What classes do I have today?')..."
+                            onkeydown="checkEnter(event)"
+                            autocomplete="off"
                         >
 
-                        <button onclick="sendMessage()">
-                            Send
+                        <button id="sendBtn" onclick="sendMessage()">
+                            Send 🚀
                         </button>
-
                     </div>
 
                 </div>
@@ -219,92 +197,25 @@
 
 
             <!-- ================= NOTICES ================= -->
-
             <section id="notices" class="page hidden">
 
-                <h1>College Notices</h1>
+                <div class="page-header">
+                    <h1>College Notices 📢</h1>
+                    <p>Latest updates, reminders, and official announcements from the college.</p>
+                </div>
 
-                <p>
-                    Latest updates and announcements from the college.
-                </p>
-
-
-                <input
-                    type="text"
-                    id="noticeSearch"
-                    class="search"
-                    placeholder="Search notices..."
-                    onkeyup="searchNotices()"
-                >
-
+                <div class="search-bar-wrap">
+                    <input
+                        type="text"
+                        id="noticeSearch"
+                        class="search"
+                        placeholder="🔍 Search notices by title or content..."
+                        onkeyup="searchNotices()"
+                    >
+                </div>
 
                 <div id="noticeList">
-
-
-                    <!-- Notice 1 -->
-
-                    <div class="notice">
-
-                        <h3>
-                            Internal Examination Timetable
-                        </h3>
-
-                        <p>
-                            The internal examination timetable will
-                            be announced soon. Students are advised
-                            to check the college portal regularly.
-                        </p>
-
-                        <span>
-                            Posted: 24 September 2026
-                        </span>
-
-                    </div>
-
-
-                    <!-- Notice 2 -->
-
-                    <div class="notice">
-
-                        <h3>
-                            College Hackathon Registration
-                        </h3>
-
-                        <p>
-                            Registration is open for the upcoming
-                            college hackathon. Interested students
-                            can register through the college portal.
-                        </p>
-
-                        <span>
-                            Posted: 23 September 2026
-                        </span>
-
-                    </div>
-
-
-                    <!-- Notice 3 -->
-
-                    <div class="notice">
-
-                        <h3>
-                            Assignment Submission Reminder
-                        </h3>
-
-                        <p>
-                            Students are requested to submit their
-                            pending Database Management and Data
-                            Structures assignments before the
-                            respective deadlines.
-                        </p>
-
-                        <span>
-                            Posted: 22 September 2026
-                        </span>
-
-                    </div>
-
-
+                    <!-- Dynamically populated or rendered -->
                 </div>
 
             </section>
@@ -312,116 +223,37 @@
 
 
             <!-- ================= ASSIGNMENTS ================= -->
-
             <section id="assignments" class="page hidden">
 
                 <div class="heading-row">
-
                     <div>
-
-                        <h1>Assignments</h1>
-
-                        <p>
-                            Keep track of your pending assignments.
-                        </p>
-
+                        <h1>Assignments Tracker 📝</h1>
+                        <p>Keep track of your coursework, deadlines, and submissions.</p>
                     </div>
 
-
-                    <button
-                        class="add-btn"
-                        onclick="openAssignmentPopup()"
-                    >
+                    <button class="add-btn" onclick="openAssignmentPopup()">
                         + Add Assignment
                     </button>
-
                 </div>
 
+                <!-- Filter Toolbar -->
+                <div class="assignment-toolbar">
+                    <div class="filter-tabs">
+                        <button class="filter-btn active" onclick="setAssignmentFilter('all', this)">
+                            All (<span id="allCount">0</span>)
+                        </button>
+                        <button class="filter-btn" onclick="setAssignmentFilter('pending', this)">
+                            Pending (<span id="pendingCount">0</span>)
+                        </button>
+                        <button class="filter-btn" onclick="setAssignmentFilter('completed', this)">
+                            Completed (<span id="completedCount">0</span>)
+                        </button>
+                    </div>
+                </div>
 
+                <!-- Assignment List -->
                 <div id="assignmentList">
-
-
-                    <!-- Assignment 1 -->
-
-                    <div class="assignment">
-
-                        <h3>
-                            Database Management System
-                        </h3>
-
-                        <p>
-                            Complete SQL queries and submit
-                            Assignment 2.
-                        </p>
-
-                        <p>
-                            <b>Due:</b> 30 September 2026
-                        </p>
-
-                        <button
-                            class="delete-btn"
-                            onclick="deleteAssignment(this)"
-                        >
-                            Delete
-                        </button>
-
-                    </div>
-
-
-                    <!-- Assignment 2 -->
-
-                    <div class="assignment">
-
-                        <h3>
-                            Data Structures
-                        </h3>
-
-                        <p>
-                            Solve problems based on arrays,
-                            stacks and queues.
-                        </p>
-
-                        <p>
-                            <b>Due:</b> 2 October 2026
-                        </p>
-
-                        <button
-                            class="delete-btn"
-                            onclick="deleteAssignment(this)"
-                        >
-                            Delete
-                        </button>
-
-                    </div>
-
-
-                    <!-- Assignment 3 -->
-
-                    <div class="assignment">
-
-                        <h3>
-                            Computer Networks
-                        </h3>
-
-                        <p>
-                            Prepare short notes on OSI model
-                            and TCP/IP protocol.
-                        </p>
-
-                        <p>
-                            <b>Due:</b> 5 October 2026
-                        </p>
-
-                        <button
-                            class="delete-btn"
-                            onclick="deleteAssignment(this)"
-                        >
-                            Delete
-                        </button>
-
-                    </div>
-
-
+                    <!-- Dynamically rendered assignments -->
                 </div>
 
             </section>
@@ -429,105 +261,29 @@
 
 
             <!-- ================= TIMETABLE ================= -->
-
             <section id="timetable" class="page hidden">
 
-                <h1>Class Timetable</h1>
-
-                <p>
-                    Check your weekly class schedule.
-                </p>
-
-
-                <div class="days">
-
-                    <button onclick="showDay('Monday')">
-                        Monday
-                    </button>
-
-                    <button onclick="showDay('Tuesday')">
-                        Tuesday
-                    </button>
-
-                    <button onclick="showDay('Wednesday')">
-                        Wednesday
-                    </button>
-
-                    <button onclick="showDay('Thursday')">
-                        Thursday
-                    </button>
-
-                    <button onclick="showDay('Friday')">
-                        Friday
-                    </button>
-
+                <div class="page-header">
+                    <h1>Class Timetable ⏱️</h1>
+                    <p>Check your weekly lecture schedule and classroom locations.</p>
                 </div>
 
+                <div class="days" id="timetableDays">
+                    <button class="day-btn" onclick="showDay('Monday')">Monday</button>
+                    <button class="day-btn" onclick="showDay('Tuesday')">Tuesday</button>
+                    <button class="day-btn" onclick="showDay('Wednesday')">Wednesday</button>
+                    <button class="day-btn" onclick="showDay('Thursday')">Thursday</button>
+                    <button class="day-btn" onclick="showDay('Friday')">Friday</button>
+                </div>
 
-                <h2 id="dayTitle">
-                    Monday
-                </h2>
-
-
-                <div id="timetableList">
-
-
-                    <div class="class-item">
-
-                        <h3>
-                            9:00 AM - 10:00 AM
-                        </h3>
-
-                        <p>
-                            Data Structures - Room 204
-                        </p>
-
+                <div class="timetable-card">
+                    <h2 id="dayTitle">Monday</h2>
+                    <div id="timetableList">
+                        <!-- Dynamically populated classes -->
                     </div>
-
-
-                    <div class="class-item">
-
-                        <h3>
-                            10:00 AM - 11:00 AM
-                        </h3>
-
-                        <p>
-                            Database Management - Room 302
-                        </p>
-
-                    </div>
-
-
-                    <div class="class-item">
-
-                        <h3>
-                            11:30 AM - 12:30 PM
-                        </h3>
-
-                        <p>
-                            Computer Networks - Room 105
-                        </p>
-
-                    </div>
-
-
-                    <div class="class-item">
-
-                        <h3>
-                            2:00 PM - 3:00 PM
-                        </h3>
-
-                        <p>
-                            Web Development Lab - Lab 2
-                        </p>
-
-                    </div>
-
-
                 </div>
 
             </section>
-
 
         </main>
 
@@ -536,44 +292,126 @@
 
 
     <!-- ================= ADD ASSIGNMENT POPUP ================= -->
-
     <div id="assignmentPopup" class="popup">
 
         <div class="popup-box">
+            <div class="popup-header">
+                <h2>➕ Add New Assignment</h2>
+                <button class="close-popup-btn" onclick="closeAssignmentPopup()">&times;</button>
+            </div>
 
-            <h2>Add Assignment</h2>
+            <form id="assignmentForm" onsubmit="event.preventDefault(); addAssignment();">
+
+                <div class="form-group">
+                    <label for="assignmentName">Assignment Title *</label>
+                    <input
+                        type="text"
+                        id="assignmentName"
+                        placeholder="e.g. ER Diagram and SQL Queries"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="assignmentSubject">Subject / Course *</label>
+                    <input
+                        type="text"
+                        id="assignmentSubject"
+                        placeholder="e.g. Database Management System"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="assignmentDescription">Description / Instructions</label>
+                    <textarea
+                        id="assignmentDescription"
+                        rows="3"
+                        placeholder="Brief notes, problem numbers, or submission guidelines..."
+                    ></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="assignmentDate">Due Date *</label>
+                    <input
+                        type="date"
+                        id="assignmentDate"
+                        required
+                    >
+                </div>
+
+                <div class="popup-buttons">
+                    <button type="submit" class="submit-btn">
+                        Save Assignment
+                    </button>
+
+                    <button type="button" class="cancel-btn" onclick="closeAssignmentPopup()">
+                        Cancel
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
 
 
-            <input
-                type="text"
-                id="assignmentName"
-                placeholder="Assignment name"
-            >
 
+    <!-- ================= AI API SETTINGS POPUP ================= -->
+    <div id="aiSettingsPopup" class="popup">
 
-            <input
-                type="text"
-                id="assignmentDescription"
-                placeholder="Description"
-            >
+        <div class="popup-box">
+            <div class="popup-header">
+                <h2>⚙️ Connect Gemini AI API</h2>
+                <button class="close-popup-btn" onclick="closeAiSettings()">&times;</button>
+            </div>
 
+            <p class="popup-desc">
+                Connect your free Google Gemini API key to activate smart, real-time AI responses aware of your college assignments, notices, and timetable.
+            </p>
 
-            <input
-                type="date"
-                id="assignmentDate"
-            >
+            <div class="form-group">
+                <label for="geminiApiKey">Google Gemini API Key</label>
+                <div class="api-key-input-wrap">
+                    <input
+                        type="password"
+                        id="geminiApiKey"
+                        placeholder="Paste your AIzaSy... key here"
+                    >
+                    <button type="button" class="toggle-eye-btn" onclick="toggleApiKeyVisibility()" title="Toggle visibility">
+                        👁️
+                    </button>
+                </div>
+                <small class="helper-text">
+                    Get a free API key at
+                    <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">Google AI Studio &rarr;</a>
+                </small>
+            </div>
 
+            <div class="form-group">
+                <label for="geminiModelSelect">Model Version</label>
+                <select id="geminiModelSelect" class="styled-select">
+                    <option value="gemini-2.0-flash" selected>Gemini 2.0 Flash (Fast &amp; Recommended)</option>
+                    <option value="gemini-1.5-flash">Gemini 1.5 Flash</option>
+                    <option value="gemini-1.5-pro">Gemini 1.5 Pro</option>
+                </select>
+            </div>
+
+            <div id="apiTestStatus" class="api-status-msg"></div>
 
             <div class="popup-buttons">
-
-                <button onclick="addAssignment()">
-                    Add
+                <button type="button" class="submit-btn" onclick="saveAndTestApiKey()">
+                    Save &amp; Test Connection
                 </button>
 
-                <button onclick="closeAssignmentPopup()">
-                    Cancel
+                <button type="button" class="delete-btn" onclick="clearApiKey()">
+                    Remove Key
                 </button>
 
+                <button type="button" class="cancel-btn" onclick="closeAiSettings()">
+                    Close
+                </button>
             </div>
 
         </div>
@@ -581,10 +419,13 @@
     </div>
 
 
-    <!-- JavaScript -->
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
 
+
+    <!-- JavaScript -->
     <script src="script.js"></script>
-       <script type="module" src="integrations.js"></script>
+    <script type="module" src="integrations.js"></script>
 
 </body>
 
