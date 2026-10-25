@@ -6,6 +6,12 @@ It combines an **Assignments Tracker** with **Google Calendar integration**, an 
 
 ---
 
+## 📸 Project Preview
+
+![CampusAI Preview](CampusAI-Preview.png)
+
+---
+
 ## ✨ Features
 
 - 🏠 **Smart Student Dashboard**: Real-time counter cards for pending assignments, notices, and today's classes with instant deadline updates.
