@@ -1,5 +1,7 @@
 # 🎓 CampusAI - Student Help Desk & College Portal
 
+> 🔗 **Live Deployed Application:** [https://devanshi-tech3158.github.io/CampusAI/](https://devanshi-tech3158.github.io/CampusAI/)
+
 CampusAI is an intelligent web-based student help desk and academic productivity portal designed to keep important college information, coursework deadlines, notices, and timetables in one unified place.
 
 It combines an **Assignments Tracker** with **Google Calendar integration**, an **AI Help Desk powered by Google Gemini**, **College Notices**, and a **Weekly Class Timetable**.
@@ -9,6 +11,12 @@ It combines an **Assignments Tracker** with **Google Calendar integration**, an 
 ## 📸 Project Preview
 
 ![CampusAI Preview](CampusAI-Preview.png)
+
+---
+
+## 🌐 Live Demo
+
+👉 **Deployed Website Link:** [https://devanshi-tech3158.github.io/CampusAI/](https://devanshi-tech3158.github.io/CampusAI/)
 
 ---
 
@@ -80,12 +88,6 @@ CampusAI/
 3. Click on **⚙️ AI API** (in the chat header or sidebar).
 4. Paste your API key, select **Gemini 2.0 Flash**, and click **Save & Test Connection**.
 5. Your status will switch to `🟢 Gemini 2.0 Connected`!
-
----
-
-## 🌐 Live Demo
-
-👉 [**Click here to visit CampusAI Live**](https://devanshi-tech3158.github.io/CampusAI/)
 
 ---
 
